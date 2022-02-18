@@ -48,19 +48,18 @@ import android.view.animation.Transformation;
   }
 
   private final View mView;
-  private final float mStartOpacity, mDeltaOpacity;
+  private final float mCurrentOpacity;
 
-  public OpacityAnimation(View view, float startOpacity, float endOpacity) {
+  public OpacityAnimation(View view, float currentOpacity) {
     mView = view;
-    mStartOpacity = startOpacity;
-    mDeltaOpacity = endOpacity - startOpacity;
+    mCurrentOpacity = currentOpacity;
 
     setAnimationListener(new OpacityAnimationListener(view));
   }
 
   @Override
   protected void applyTransformation(float interpolatedTime, Transformation t) {
-    mView.setAlpha(mStartOpacity + mDeltaOpacity * interpolatedTime);
+    mView.setAlpha(mCurrentOpacity);
   }
 
   @Override

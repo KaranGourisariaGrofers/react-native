@@ -28,9 +28,8 @@ import com.facebook.react.uimanager.IllegalViewOperationException;
       switch (mAnimatedProperty) {
         case OPACITY:
           {
-            float fromValue = isReverse() ? view.getAlpha() : 0.0f;
-            float toValue = isReverse() ? 0.0f : view.getAlpha();
-            return new OpacityAnimation(view, fromValue, toValue);
+            float currentValue = view.getAlpha();
+            return new OpacityAnimation(view, currentValue);
           }
         case SCALE_XY:
           {
